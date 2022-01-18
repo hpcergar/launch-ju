@@ -6,9 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/L1 - Fly over.unity
-    guid: 739a8224f40db7d4c97298bc3072e84c
+    path: Assets/Scenes/1.1 Fly, Peter, Fly.unity
+    guid: 8f58e2eb32c58fa4f9f2fc48b476db5f
   - enabled: 1
-    path: Assets/Scenes/L2 - Fly under.unity
-    guid: c3086be5bad251c4fb0c6c3456a1db25
+    path: Assets/Scenes/1.2 Meet vertical oscillator.unity
+    guid: ec1ba17fc991c1b4a93818858f606f94
+  - enabled: 1
+    path: Assets/Scenes/1.3 Meet horizontal oscillator.unity
+    guid: c63811c11d1dbc946bed88f7b946b76f
+  - enabled: 1
+    path: Assets/Scenes/1.4 Meet oscillator landing.unity
+    guid: 3097d5f2e9c1ed3438d98c755b39586e
+  - enabled: 1
+    path: Assets/Scenes/1.5 Meet corridor.unity
+    guid: a677f99b73f0698468887b6b816eb64d
+  - enabled: 1
+    path: Assets/Scenes/1.6 Meet vertical corridor.unity
+    guid: 8d88852ed2b6be2428e35860b65f976e
+  - enabled: 1
+    path: Assets/Scenes/1.7 Double vertical corridor.unity
+    guid: f1c19f69f9bc3a44c88d5743c74ce363
+  - enabled: 1
+    path: Assets/Scenes/1.8 Final.unity
+    guid: b1d484d03f3e4fb4eb19ca885c6e6fda
   m_configObjects: {}

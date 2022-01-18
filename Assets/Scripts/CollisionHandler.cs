@@ -40,6 +40,7 @@ public class CollisionHandler : MonoBehaviour
                 break;
             case "Finish":
                 StartNextLevelSequence();
+                other.gameObject.GetComponent<Oscillator>()?.Pause();
                 break;
             default:
                 StartCrashSequence();
@@ -50,7 +51,10 @@ public class CollisionHandler : MonoBehaviour
     private void StartCrashSequence()
     {
         isTransitioning = true;
-        GetComponent<Movement>().enabled = false;
+        Movement movement = GetComponent<Movement>();
+        if(movement) {
+            movement.enabled = false;
+        }
         crashParticles.Play();
         playOneShot(crashClip);
         Invoke("Respawn", crashDelay);
@@ -66,6 +70,7 @@ public class CollisionHandler : MonoBehaviour
     {
         isTransitioning = true;
         GetComponent<Movement>().enabled = false;
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
         successParticles.Play();
         playOneShot(successClip);
         Invoke("NextLevel", nextLevelDelay);
@@ -73,7 +78,17 @@ public class CollisionHandler : MonoBehaviour
 
     private void NextLevel()
     {
-        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        ChangeLevel(1);
+    }
+
+    private void PreviousLevel()
+    {
+        ChangeLevel(-1);
+    }
+
+    private void ChangeLevel(int offset)
+    {
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + offset;
 
         try
         {
@@ -97,6 +112,12 @@ public class CollisionHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L))
         {
             NextLevel();
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            PreviousLevel();
             return;
         }
 
